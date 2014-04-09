@@ -3,7 +3,7 @@ PhotoShare::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  root :to => 'profiles#index'
+  root :to => 'profiles#welcome'
   resources :profiles
   resources :users
   resources :sessions
