@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profile = Profile.find_by(:user_id => current_user.id)
-    if @profile = nil
+    if @profile == nil
     @profile = Profile.create(:user_id => current_user.id)
     end
     @profile = Profile.find_by(:user_id => current_user.id)
@@ -26,8 +26,15 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def delete_avatar
+    @profile = Profile.find(params[:id])
+    @profile.avatar = nil
+    @profile.save
+    redirect_to profiles_path
+  end
+
   private
   def params_profile
-    params.require(:profile).permit(:picture, :avatar, :name)
+    params.require(:profile).permit(:avatar, :name)
   end
 end

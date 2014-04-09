@@ -14,6 +14,7 @@ gem 'jquery-turbolinks'
 gem 'capybara'
 gem 'factory_girl'
 gem 'bcrypt-ruby'
+gem "paperclip"
 
 
 group :development do

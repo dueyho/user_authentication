@@ -2,6 +2,14 @@
 
 <p> Welcome to your Profile </p>
 
-Howdy <%= @profile.name %>
+Howdy <% if @profile.name == nil%>
+    <%= "please update your profile" %>
+    <% else %>
+    <%= @profile.name%>
+    <% end %>
+
+<%= image_tag @profile.avatar.url(:thumb) %>
 
 <%= link_to "Edit Info", edit_profile_path(@profile) %>
+
+
